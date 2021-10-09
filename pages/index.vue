@@ -1,5 +1,13 @@
 <template>
-  <Tutorial/>
+  <main>
+    <Navbar />
+
+    <div class="flex flex-row justify-center">
+      <SearchBar />
+    </div>
+
+    <Footer />
+  </main>
 </template>
 
 <script lang="ts">
