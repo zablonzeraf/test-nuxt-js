@@ -50,6 +50,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // https://firebase.nuxtjs.org/
+    '@nuxtjs/firebase',
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -65,6 +67,25 @@ export default {
   tailwindcss: {
     config: {
       plugins: [require('daisyui')],
+    },
+  },
+
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyAcBQ4lpFBRb-usD3qQqhJvBvDQL5q5UXE',
+      authDomain: 'store-template-1451c.firebaseapp.com',
+      projectId: 'store-template-1451c',
+      storageBucket: 'store-template-1451c.appspot.com',
+      messagingSenderId: '1054440576088',
+      appId: '1:1054440576088:web:36a276efd5050be9cba62d',
+      measurementId: 'G-C2ZRG3SWBT',
+    },
+    services: {
+      auth: true,
+      firestore: {
+        memoryOnly: false,
+        enablePersistance: true,
+      },
     },
   },
 }

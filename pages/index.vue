@@ -6,8 +6,16 @@
   </main>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
+export default {
+  middleware: 'auth',
+  created() {
+    this.$store.commit('loading/SET_LOADING', true)
 
-export default Vue.extend({})
+    // eslint-disable-next-line no-console
+    console.log({
+      isLoading: this.$store.state.loading?.isLoading
+    })
+  }
+}
 </script>
