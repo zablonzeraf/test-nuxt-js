@@ -3,6 +3,7 @@
     <div>
       <span class="footer-title">Services</span>
       <a class="link link-hover">Branding</a>
+      <!-- <a class="link link-hover">Brandings</a> -->
       <a class="link link-hover">Design</a>
       <a class="link link-hover">Marketing</a>
       <a class="link link-hover">Advertisement</a>
