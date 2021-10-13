@@ -49,7 +49,7 @@ export default {
 
 <style scoped>
 .product-card {
-  @apply card shadow-lg bordered inline-block;
+  @apply card shadow-lg rounded bordered border-b-4 border-gray-400 inline-block;
   max-width: 300px;
 }
 </style>
