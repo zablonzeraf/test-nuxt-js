@@ -5,7 +5,11 @@
     <SearchBar class="mt-2" />
 
     <div v-if="!isLoading" class="product-list">
-      <product-card v-for="(product, idx) in products" :key="idx" />
+      <product-card
+        v-for="(product, idx) in products"
+        v-bind="product"
+        :key="idx"
+      />
     </div>
     <div v-else class="flex justify-center pt-8 pb-48">
       <div>

@@ -6,7 +6,9 @@
       </button>
     </div>
     <div class="flex-1 px-2 m1-2">
-      <span class="text-lg font-bold text-gray-200">Random Name Here</span>
+      <span class="text-lg font-bold text-gray-200">
+        <NuxtLink to="/"> Random Name Here </NuxtLink>
+      </span>
     </div>
     <div class="flex-1 justify-end">
       <button class="nav-cart">

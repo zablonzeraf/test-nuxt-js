@@ -41,6 +41,10 @@ export const actions = {
       products,
     })
   },
+  /**
+   * @param {String} keyword Search keyword
+   */
+  async searchProducts() {},
   /** @type {import("~/type.d").ActionType} */
   getProduct: ({ commit }, payload) => {
     commit('GET_PRODUCT', payload)

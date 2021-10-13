@@ -4,8 +4,8 @@
 
     <SearchBar class="mt-2" />
 
-    <div v-if="!isLoading" class="product-list">
-      <NuxtChild />
+    <div v-if="!isLoading">
+      <NuxtChild :product="product" />
     </div>
     <div v-else class="flex justify-center pt-8 pb-48">
       <div>
@@ -21,17 +21,39 @@
 <script>
 export default {
   middleware: 'auth',
+  asyncData({ params }) {
+    return {
+      id: params.id,
+    }
+  },
   data() {
     return {
       isLoading: false,
-      products: [],
+      product: undefined,
     }
   },
   created() {
     // Read collection of products
-    this.readProducts()
+    this.readProduct()
   },
   methods: {
+    async readProduct() {
+      this.toggleLoading(true)
+      const product = await this.$fire.firestore
+        .collection('products')
+        .doc(this.id)
+        .get()
+      this.product = {
+        id: product.id,
+        ...product.data(),
+      }
+
+      console.log({
+        product: this.product,
+      })
+
+      this.toggleLoading(false)
+    },
     async readProducts() {
       this.toggleLoading(true)
       // Dispatch to read products
