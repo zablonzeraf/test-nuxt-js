@@ -6,7 +6,9 @@
         placeholder="Enter Keyword Here"
         class="search-input"
       />
-      <button class="search-btn">Search</button>
+      <button class="search-btn">
+        <fa-icon icon="search" class="mr-1 text-xs" /> Search
+      </button>
     </div>
   </div>
 </template>
@@ -17,14 +19,14 @@ export default {}
 
 <style scoped>
 .search-bar {
-  @apply relative mx-32;
+  @apply relative mx-2 md:mx-32;
 }
 
 .search-btn {
-  @apply absolute top-0 right-0 rounded-l-none btn btn-info;
+  @apply absolute top-0 right-0 rounded rounded-l-none btn border-none bg-gray-400;
 }
 
 .search-input {
-  @apply w-full pr-16 input input-info input-bordered;
+  @apply w-full pr-16 rounded input input-bordered border-0 shadow;
 }
 </style>

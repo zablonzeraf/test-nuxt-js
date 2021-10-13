@@ -35,7 +35,7 @@ export default {
     [
       '@nuxtjs/fontawesome',
       {
-        component: 'fa',
+        component: 'Fa',
         suffix: true,
         icons: {
           solid: true,
