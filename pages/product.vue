@@ -21,11 +21,6 @@
 <script>
 export default {
   middleware: 'auth',
-  asyncData({ params }) {
-    return {
-      id: params.id,
-    }
-  },
   data() {
     return {
       isLoading: false,

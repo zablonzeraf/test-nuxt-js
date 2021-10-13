@@ -8,7 +8,10 @@
       <product-card v-for="(product, idx) in products" :key="idx" />
     </div>
     <div v-else class="flex justify-center pt-8 pb-48">
-      <div>Loading Products, Please wait...</div>
+      <div>
+        <fa-icon class="animate-spin" icon="sync" /> Loading Products, Please
+        wait...
+      </div>
     </div>
 
     <Footer />
@@ -16,15 +19,23 @@
 </template>
 
 <script>
-import ProductCard from '~/components/ProductCard.vue'
+import { mapState } from 'vuex'
 export default {
-  components: { ProductCard },
   middleware: 'auth',
+  asyncData({ params }) {
+    return {
+      id: params.id,
+    }
+  },
   data() {
     return {
       isLoading: false,
-      products: [],
     }
+  },
+  computed: {
+    ...mapState({
+      products: (state) => state.product.products,
+    }),
   },
   created() {
     // Read collection of products
@@ -35,7 +46,6 @@ export default {
       this.toggleLoading(true)
       // Dispatch to read products
       await this.$store.dispatch('product/getAllProducts')
-      this.products = this.$store.state.product.products
       this.toggleLoading(false)
     },
     /** @param {Boolean} isLoading */
