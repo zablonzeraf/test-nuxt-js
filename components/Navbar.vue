@@ -6,7 +6,7 @@
       </button>
     </div>
     <div class="flex-1 px-2 m1-2">
-      <span class="text-lg font-bold text-gray-400">CheckIt!</span>
+      <span class="text-lg font-bold text-gray-200">Random Name Here</span>
     </div>
     <div class="flex-1 justify-end">
       <button class="nav-cart">

@@ -81,7 +81,6 @@ export default {
       measurementId: 'G-C2ZRG3SWBT',
     },
     services: {
-      auth: true,
       firestore: {
         memoryOnly: false,
         enablePersistance: true,

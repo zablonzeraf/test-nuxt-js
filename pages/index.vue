@@ -2,8 +2,13 @@
   <main class="w-full">
     <Navbar />
 
-    <div class="product-list">
-      <product-card v-for="item in items" :key="item" />
+    <SearchBar class="mt-2" />
+
+    <div v-if="!isLoading" class="product-list">
+      <product-card v-for="(product, idx) in products" :key="idx" />
+    </div>
+    <div v-else class="flex justify-center pt-8 pb-48">
+      <div>Loading Products, Please wait...</div>
     </div>
 
     <Footer />
@@ -15,16 +20,28 @@ import ProductCard from '~/components/ProductCard.vue'
 export default {
   components: { ProductCard },
   middleware: 'auth',
-  data: () => ({
-    items: [1, 2, 3, 4],
-  }),
+  data() {
+    return {
+      isLoading: false,
+      products: [],
+    }
+  },
   created() {
-    this.$store.commit('loading/SET_LOADING', true)
-
-    // eslint-disable-next-line no-console
-    console.log({
-      isLoading: this.$store.state.loading?.isLoading,
-    })
+    // Read collection of products
+    this.readProducts()
+  },
+  methods: {
+    async readProducts() {
+      this.toggleLoading(true)
+      // Dispatch to read products
+      await this.$store.dispatch('product/getAllProducts')
+      this.products = this.$store.state.product.products
+      this.toggleLoading(false)
+    },
+    /** @param {Boolean} isLoading */
+    toggleLoading(isLoading) {
+      this.isLoading = isLoading
+    },
   },
 }
 </script>
